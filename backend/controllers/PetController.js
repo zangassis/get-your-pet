@@ -8,6 +8,8 @@ module.exports = class PetController {
 
         const { name, age, weight, color } = req.body
 
+        const images = req.files
+
         const available = true
 
         if (!name) {
@@ -21,6 +23,9 @@ module.exports = class PetController {
         }
         if (!color) {
             res.status(422).json({ message: 'Color is required' })
+        }
+        if (images.length === 0) {
+            res.status(422).json({ message: 'Image is required' })
         }
 
         const token = getToken(req)
@@ -39,6 +44,10 @@ module.exports = class PetController {
                 image: user.image,
                 phone: user.phone
             }
+        })
+
+        images.map((image) => {
+            pet.images.push(image.filename)
         })
 
         try {
