@@ -1,16 +1,26 @@
 import Input from '../../form/Input'
 import styles from '../../form/Form.module.css'
 import { Link } from 'react-router-dom'
-
-function handleChange(e){
-
-}
+import { useState, useContext } from 'react'
+import { Context } from '../../../context/UserContext'
 
 function Register(){
+    const [user, setUser] = useState({})
+    const { register } = useContext(Context)
+
+    function handleChange(e){
+        setUser({...user, [e.target.name]: e.target.value })
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        register(user)
+    }
+
     return(
     <section className={styles.form_container}>
             <h1>Register</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Input
                 text="Name"
                 type="text"
