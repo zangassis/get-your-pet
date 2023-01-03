@@ -21,6 +21,7 @@ function Navbar(){
                 {authenticated ? (
                 <>
                     <li><Link to="/pet/mypets">My Pets</Link></li>
+                    <li><Link to="/pet/myadoptions">My adoptions</Link></li>
                     <li><Link to="/user/profile">Profile</Link></li>
                     <li onClick={logout}>Sign out</li>
                 </>
