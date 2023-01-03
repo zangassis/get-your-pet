@@ -18,9 +18,13 @@ function PetDetails() {
 
   async function schedule() {
     let msgType = 'success'
+    const formData = new FormData()
+
+    console.log(token)
+    console.log(`Bearer ${JSON.parse(token)}`)
 
     const data = await api
-      .patch(`pets/schedule/${pet._id}`, {
+      .patch(`pets/schedule/${pet._id}`, formData, {
         headers: {
           Authorization: `Bearer ${JSON.parse(token)}`,
         },
@@ -62,9 +66,12 @@ function PetDetails() {
             <span className="bold">Age:</span> {pet.age} years
           </p>
           {token ? (
-            <button onClick={schedule}>Request a visit</button>) : (<p>You need to <Link to="/register">create an account</Link> to request the visit.</p>
-            )
-          }
+            <button onClick={schedule}>Request a visit</button>
+          ) : (
+            <p>
+              You need to <Link to="/register">create an account</Link> to request the visit.
+            </p>
+          )}
         </section>
       )}
     </>

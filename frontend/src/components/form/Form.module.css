@@ -7,7 +7,7 @@
 
 .form_container input[type='submit'] {
     border-radius: 8px;
-    background-color: #246665;
+    background-color: #5fa503;
     color: #fff;
     border: none;
     min-width: 100px;
@@ -19,7 +19,7 @@
 }
 
 .form_container input[type='submit']:hover {
-    background-color: #ff6d5c;
+    background-color: #003226;
 }
 
 .form_container p {
@@ -27,7 +27,7 @@
 }
 
 .form_container p a {
-    color: #ff6d5c;
+    color: #003226;
     font-weight: bold;
 }
 
